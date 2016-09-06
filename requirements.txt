@@ -4,7 +4,5 @@ numpy==1.10.1
 PyAudio==0.2.9
 pydub==0.16.0
 pyknon==1.2
-PySynth==1.1
 six==1.10.0
-verdigris.mu-splat==1.5
 wheel==0.24.0

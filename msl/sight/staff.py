@@ -345,12 +345,16 @@ class Staff:
 			return []
 
 
-	def distance(self, (x1, y1), (x2, y2)):
+	def distance(self, p1, p2):
+		(x1, y1) = p1
+		(x2, y2) = p2
 		a = ((x1-x2)**2.0)
 		b = ((y1-y2)**2.0)
 		return (( a + b )**(.5))
 
-	def midpoint(self, (x1, y1), (x2, y2)):
+	def midpoint(self, p1, p2):
+		(x1, y1) = p1
+		(x2, y2) = p2
 		x = (x1 + x2) / 2.0
 		y = (y1 + y2) / 2.0
 		return x, y
@@ -679,7 +683,9 @@ class Staffy:
 			min_x = min(min_x, line.x1)
 		return min_x, max_x
 
-	def midpoint(self, (x1, y1), (x2, y2)):
+	def midpoint(self, p1, p2):
+		(x1, y1) = p1
+		(x2, y2) = p2
 		x = (x1 + x2) / 2.0
 		y = (y1 + y2) / 2.0
 		return x, y

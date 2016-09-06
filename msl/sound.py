@@ -101,7 +101,9 @@ class Song:
 			i += 1
 		return None
 
-	def midpoint(self, (x1, y1), (x2, y2)):
+	def midpoint(self, p1, p2):
+		(x1, y1) = p1
+		(x2, y2) = p2
 		x = (x1 + x2) / 2.0
 		y = (y1 + y2) / 2.0
 		return x, y

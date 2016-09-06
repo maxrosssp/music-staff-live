@@ -10,17 +10,17 @@ class Line:
 					self.init_m_and_b(args[0], args[1])
 				# else:
 				except:
-					print "Insufficient arguments to create object"
+					print("Insufficient arguments to create object")
 			elif type(args[0]) == tuple:
 				try:
 					self.init_coordinates(args[0], args[1])
 				except:
-					print "Insufficient arguments to create object"
+					print("Insufficient arguments to create object")
 			else:
 				try:
 					self.init_line(args[0])
 				except:
-					print "Insufficient arguments to create object"
+					print("Insufficient arguments to create object")
 		if kwargs.has_key('width') and kwargs.has_key('height'):
 			self.set_border(kwargs['width'], kwargs['height'])
 

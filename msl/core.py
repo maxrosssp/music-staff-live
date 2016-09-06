@@ -7,6 +7,7 @@ import sys
 from msl.parameters.operator import ParamOperator
 from msl.sight.staff import Staffer
 from msl.sound import Player
+from msl.calibration.calibrators import *
 import os
 
 class MSLive:
@@ -101,22 +102,22 @@ class MSLive:
 			else:
 				self.motion_count -= 1
 				if self.motion_count <= 0:
-					print "Motion count down complete"
+					print("Motion count down complete")
 					if not diff_detected:
-						print "Diff not detected. Go to play sound."
+						print("Diff not detected. Go to play sound.")
 						self.motion_count = self.motion_count_start
 						self.motion = False
 					else:
 						self.diff_count -= 1
 						if self.diff_count == 0:
-							print "Diff countdown complete. Resetting frame."
+							print("Diff countdown complete. Resetting frame.")
 							self.diff_count = self.diff_count_start
 							self.motion_count = self.motion_count_start
 							self.motion = False
 							self.create_song = False
 		else:
 			if self.motion_detected:
-				print "MOTION DETECTED"
+				print("MOTION DETECTED")
 				self.motion = True
 				self.create_song = True
 				self.compareFrame = self.previous2frames[1]
@@ -126,7 +127,7 @@ class MSLive:
 
 	def render(self):
 		if (not self.motion) and (not self.motion_detected) and self.create_song:
-			print "Do stuff"
+			print("Do stuff")
 
 			frame = self.currentFrame
 
@@ -134,7 +135,7 @@ class MSLive:
 			get_staff = True
 			while get_staff:
 				try:
-					print "Try to create staff."
+					print("Try to create staff.")
 					get_staff = False
 					staffer = Staffer(frame,
 								tempo=self.tempo,
@@ -168,7 +169,7 @@ class MSLive:
 					player.play_file("final.wav")
 					player.terminate()
 				except:
-					print "Couldn't create staff."
+					print("Couldn't create staff.")
 					(grabbed, frame) = self.camera.read()
 					while not grabbed:
 						(grabbed, frame) = self.camera.read()
@@ -179,7 +180,6 @@ class MSLive:
 	def start(self, calibrate=False):
 
 		if calibrate:
-			from msl.calibration.calibrators import *
 
 			self.BLUE_PARAMS = ColorCalibrator('Blue', self.BLUE_PARAMS).calibrate()
 			self.param_operator.dump('BLUE_PARAMS', self.BLUE_PARAMS)

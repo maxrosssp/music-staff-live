@@ -316,9 +316,9 @@ if do_repeat:
 f.close()
 
 if not sel:
-	print
-	print "*** Song %u not found in file %s!" % (num, fn)
-	print
+	print()
+	print("*** Song %u not found in file %s!" % (num, fn))
+	print()
 else:
 	# print key, unit
 	# print song

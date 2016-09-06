@@ -17,7 +17,7 @@ class ParamOperator:
 		try:
 			params = pickle.load( open(self.directory + '/' + filename, 'rb') )
 		except:
-			print "Unable to load saved parameters. Using defaults?"
+			print("Unable to load saved parameters. Using defaults?")
 			params = self.settings.getdict(category + '_DEFAULT')
 			
 		return params 
